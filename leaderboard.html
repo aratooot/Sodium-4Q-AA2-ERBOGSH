@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Leaderboard</h1>
+
+    <div class="game-card">
+        <p id="scoreDisplay">Your score: 0</p>
+    </div>
+
+    <a href="index.html"><button>Back to Game</button></a>
+
+    <script>
+        let score = localStorage.getItem("score") || 0;
+        document.getElementById("scoreDisplay").innerHTML = "Your score: " + score;
+    </script>
+</body>
+</html>

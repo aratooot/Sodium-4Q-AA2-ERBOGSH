@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>About the Game</h1>
+
+    <div class="game-card">
+        <p><b>Welcome to the Riddle Game!</b></p>
+        <p>Step into a pink, Gorge-ilicious and Gorge-tastic world where you can use the second “B” in the triple B’s—Brain! Solve fun and tricky riddles as you level up from Easy to Extreme. Because, honestly… what, like it’s hard? Being clever is never last season.</p>
+
+        <h2>How to Play:</h2>
+        <p>• Enter your username to start your journey</p>
+        <p>• Choose your preferred difficulty level</p>
+        <p>• Read each riddle carefully</p>
+        <p>• Type your answer and click submit</p>
+        <p>• Slay each level by answering correctly!</p>
+
+        <h2>Goal of the Game:</h2>
+        <p>Your mission is to become the Ultimate Riddler Master. Answer all riddles correctly and prove that you’re not just stylish, but brilliant too!</p>
+    </div>
+
+    <input type="text" id="username" placeholder="Enter your username">
+    <br><br>
+    <button onclick="saveName()">Start Game</button>
+
+    <script>
+        function saveName() {
+            let name = document.getElementById("username").value.trim();
+
+            if (name === "") {
+                alert("Please enter a username.");
+                return;
+            }
+
+            if (name.includes(" ")) {
+                alert("Username must not contain spaces.");
+                return;
+            }
+
+            localStorage.setItem("username", name);
+            alert("Welcome, " + name + "! Get ready to slay the riddles 💖");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
