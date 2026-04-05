@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About</title>
+    <title>About the Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,41 +9,41 @@
 
     <div class="game-card">
         <p><b>Welcome to the Riddle Game!</b></p>
-        <p>Step into a pink, Gorge-ilicious and Gorge-tastic world where you can use the second “B” in the triple B’s—Brain! Solve fun and tricky riddles as you level up from Easy to Extreme. Because, honestly… what, like it’s hard? Being clever is never last season.</p>
+        <p>Step into a pink, Gorge-ilicious and Gorge-tastic world where you can use the second “B” in the triple B’s—Brain! Solve fun and tricky riddles as you level up from Easy to Extreme.</p>
 
-        <h2>How to Play:</h2>
-        <p>• Enter your username to start your journey</p>
-        <p>• Choose your preferred difficulty level</p>
-        <p>• Read each riddle carefully</p>
-        <p>• Type your answer and click submit</p>
-        <p>• Slay each level by answering correctly!</p>
+        <h2>How to Play</h2>
+        <p>1. Enter your username</p>
+        <p>2. Choose your level</p>
+        <p>3. Read the riddle carefully</p>
+        <p>4. Type your answer and click submit</p>
+        <p>5. Answer correctly to earn points</p>
 
-        <h2>Goal of the Game:</h2>
-        <p>Your mission is to become the Ultimate Riddler Master. Answer all riddles correctly and prove that you’re not just stylish, but brilliant too!</p>
+        <h2>Goal</h2>
+        <p>Answer all riddles correctly and become the Ultimate Riddler Master!</p>
     </div>
 
-    <input type="text" id="username" placeholder="Enter your username">
-    <br><br>
+    <input type="text" id="username" placeholder="Username">
     <button onclick="saveName()">Start Game</button>
 
     <script>
         function saveName() {
-            let name = document.getElementById("username").value.trim();
+            let name = document.getElementById("username").value;
+            let rule = /^[A-Za-z0-9_]+$/;
 
-            if (name === "") {
-                alert("Please enter a username.");
-                return;
-            }
-
-            if (name.includes(" ")) {
-                alert("Username must not contain spaces.");
+            if (!rule.test(name)) {
+                alert("Use letters, numbers, and underscores only !");
                 return;
             }
 
             localStorage.setItem("username", name);
-            alert("Welcome, " + name + "! Get ready to slay the riddles 💖");
             window.location.href = "index.html";
+        }
+
+        let oldName = localStorage.getItem("username");
+        if (oldName) {
+            document.write("<p>Welcome back, " + oldName + "!</p>");
         }
     </script>
 </body>
 </html>
+
